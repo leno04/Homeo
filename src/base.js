@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import Navbar from "./components/navbar";
+import image from "./images/image.jpg";
 
 const custom_shadow = {
     boxShadow: '1px 1px 100px rgba(36, 139, 119, 0.5)'
@@ -50,7 +51,17 @@ export default function Base(){
     const scrollToSection = (id) => {
         const element = document.getElementById(id);
         if (element) {
-           element.scrollIntoView({ behavior: "smooth" });
+            const rect = element.getBoundingClientRect();
+            
+            // Calculate the scroll position to align with the top of the section
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            const offset = rect.top + scrollTop;
+    
+            // Scroll to the calculated offset
+            window.scrollTo({
+                top: offset,
+                behavior: "smooth"
+            });
         }
     };
     const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -60,6 +71,7 @@ export default function Base(){
     };
     return(
         <div class="relative">
+            <div class="h-[100vh] mb-12 w-full">
             <nav class="bg-white dark:bg-gray-900 fixed w-full z-20 top-0 start-0">
                 <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-3 relative">
                 <a href="https://flowbite.com/" class="flex items-center space-x-3 rtl:space-x-reverse">
@@ -95,7 +107,7 @@ export default function Base(){
                 <div className={`items-center justify-between ${isMenuOpen ? 'absolute top-12 right-4 w-1/2 xs:w-1/3 sm:w-1/3 block':'hidden'} md:flex md:w-auto md:order-1`} style={{zIndex:1000}} id="navbar-sticky">
                     <ul class="flex flex-col p-4 md:p-0 mt-4 font-medium rounded-lg bg-[#d5ede9] md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
                     <li>
-                        <button class="block py-2 px-3 text-white bg-blue-700 rounded md:bg-transparent md:text-[#2BA78F] md:p-0 md:dark:text-blue-500" onClick={() => scrollToSection("section1")} aria-current="page">Home</button>
+                        <button class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-[#2BA78F] md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700" onClick={() => scrollToSection("section1")} aria-current="page">Home</button>
                     </li>
                     <li>
                         <button class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-[#2BA78F] md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700" onClick={() => scrollToSection("section2")}>About</button>
@@ -111,8 +123,9 @@ export default function Base(){
                 </div>
                 </nav>
 
-            <div id="section1" class="absolute top-16 flex flex-col w-full gap-y-3 justify-center items-center md:top-18">
-                <h1 class="w-4/5 font-custom text-3xl sm:w-5/6 lg:3/4 xl:w-3/4 sm:text-4xl md:text-5xl text-center landscape:text-3xl">
+            <div id="section1" class="absolute top-16 flex flex-col w-full gap-y-5 lg:gap-y-3 justify-center items-center md:top-18 md:mt-6 lg:mt-8">
+                {/* <span id="section1"></span> */}
+                <h1 class="w-4/5 font-custom text-3xl sm:w-5/6 md:w-3/4 lg:w-2/3 sm:text-4xl md:text-[2.75rem] text-center">
                     <span class="hidden sm:inline">
                         <span class="text-[#2BA78F]">Search for Doctors</span>, book appointments conveniently
                     </span>
@@ -131,7 +144,22 @@ export default function Base(){
                 onMouseEnter={handleMouseEnter}
                 onMouseLeave={handleMouseLeave}
                 >EXPLORE</button>
-                <div class="w-2/3 h-[20vh] bg-[#AADCD2] rounded-rectangle"></div>
+                {/* <div class="w-2/3 h-[45vh] flex flex-col relative items-start mt-[5vh] md:mt-[7vh] lg:mt-[10vh]">
+                    <div class="h-full aspect-square bg-[#2BA78F] z-50 absolute top-0 left-0 z-50 rounded-[2rem]"></div>
+                    <div class="sm:block w-full h-[90vh] sm:h-[40vh] bg-[#AADCD2] rounded-[2rem] my-[2.5vh]"></div>
+                </div> */}
+                {/* <div class="w-2/3 h-[90vh] sm:h-[45vh] flex flex-col sm:flex-row items-center my-[4vh] md:my-[6vh] lg:my-[10vh]]">
+                    <div class="h-[45vh] aspect-square bg-[#2BA78F] rounded-[2rem]"></div>
+                    <div class="h-[40vh] w-[4/5] sm:w-[2/3] bg-[#AADCD2] rounded-[2rem]"></div>
+                </div> */}
+                <div class="relative w-[45vh] lg:w-2/3 h-[100vh] lg:h-[50vh] flex flex-col lg:flex-row items-center justify-center mt-[1.5vh]">
+                    <div class="w-full aspect-[1/1] lg:w-[50vh] lg:h-[50vh] rounded-[2rem] bg-[#AADCD2] flex items-center justify-center">
+                        <img class="aspect-[1/1] w-11/12 lg:h-11/12 rounded-[2rem]" src={`${image}`}/>
+                    </div>
+                    <div class="w-5/6 lg:flex-1 h-[55vh] lg:h-5/6 rectangle rounded-b-[2rem] lg:rounded-none lg:rounded-r-[2rem] bg-[#AADCD2]"></div>
+                </div>
+                    
+            </div>
             </div>
 
             <div id="section5"></div>
