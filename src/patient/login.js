@@ -1,9 +1,7 @@
 import React, { useState } from "react";
 
-export default function StaffSignUp() {
+export default function PatientLogin() {
   const [credentials, setCredentials] = useState({
-    name: "",
-    phoneNumber: "",
     email: "",
     password: "",
   });
@@ -21,10 +19,8 @@ export default function StaffSignUp() {
     event.preventDefault();
     // Handle form submission logic here, e.g., sending data to backend, storing in state, etc.
     console.log("Form submitted with:", credentials);
-    // // Reset form fields after submission if needed
+    // Reset form fields after submission if needed
     // setCredentials({
-    //     name: '',
-    //     phoneNumber: '',
     //     email: '',
     //     password: '',
     // });
@@ -37,26 +33,6 @@ export default function StaffSignUp() {
     >
       <div className="w-full flex flex-row flex-wrap justify-center gap-4 lg:gap-x-8">
         <input
-          id="nameInput"
-          type="text"
-          name="name"
-          className="w-11/24 md:w-5/12 px-4 py-3 mb-4 text-md border rounded-xl"
-          placeholder="Enter your name"
-          value={credentials.name}
-          onChange={onChange}
-          required
-        />
-        <input
-          id="phoneNumberInput"
-          type="number"
-          name="phoneNumber"
-          className="w-11/24 md:w-5/12 px-4 py-3 mb-4 text-md border rounded-xl"
-          placeholder="+91 Enter your phone number"
-          value={credentials.phoneNumber}
-          onChange={onChange}
-          required
-        />
-        <input
           id="emailInput"
           type="email"
           name="email"
@@ -68,10 +44,10 @@ export default function StaffSignUp() {
         />
         <input
           id="passwordInput"
-          type="text"
+          type="password"
           name="password"
           className="w-11/24 md:w-5/12 px-4 py-3 mb-4 text-md border rounded-xl"
-          placeholder="Enter the password"
+          placeholder="Enter your password"
           value={credentials.password}
           onChange={onChange}
           required
@@ -81,7 +57,7 @@ export default function StaffSignUp() {
         type="submit"
         className="inline font-semibold py-3 px-6 text-lg bg-[#228672] text-white rounded-full hover:bg-[#1a6456] focus:outline-none"
       >
-        Submit
+        Login
       </button>
     </form>
   );

@@ -1,6 +1,6 @@
 import React from "react";
 import {useState } from "react";
-// import Navbar from "./components/navbar";
+import Navbar from "./components/navbar";
 import image from "./images/image.jpg";
 // import {Link} from "react-router-dom"
 
