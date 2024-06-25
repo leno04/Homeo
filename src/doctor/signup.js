@@ -51,7 +51,7 @@ export default function DoctorSignUp() {
           type="number"
           name="phoneNumber"
           className="w-11/24 md:w-5/12 px-4 py-3 mb-4 text-md border rounded-xl"
-          placeholder="+91 Enter your phone number"
+          placeholder="+91 Enter your number"
           value={credentials.phoneNumber}
           onChange={onChange}
           required

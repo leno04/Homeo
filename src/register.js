@@ -13,27 +13,28 @@ import React, { useState } from 'react';
 import PatientSignUp from "./patient/signup";
 import DoctorSignUp from "./doctor/signup";
 import StaffSignUp from "./staff/signup";
+import img from "./images/doctorPatient.jpg";
 
 export default function Register(){
-    const [selectedOption, setSelectedOption] = useState('');
+    const [selectedOption, setSelectedOption] = useState('Option 2');
 
     const handleOptionChange = (option) => {
         setSelectedOption(option);
     };
     return (
-        <div class="h-100vh lg:h-[100vh] w-full flex flex-row justify-center items-center relative">
+        <div class="h-100vh lg:h-[100vh] bg-[#eef8f6] w-full flex flex-row justify-center items-center relative">
             <div>
-                <a href="https://flowbite.com/" className="flex items-center space-x-3 rtl:space-x-reverse absolute top-5 left-10 z-10">
+                <a href="/" className="flex items-center space-x-3 rtl:space-x-reverse absolute top-5 left-10 z-10">
                     <img src="https://flowbite.com/docs/images/logo.svg" className="h-6 md:h-8 " alt="Flowbite Logo" />
                     <span className="self-center text-lg font-semibold whitespace-nowrap dark:text-white sm:text-2xl landscape:text-lg">Flowbite</span>
                 </a>
             </div>
-            <div class="flex flex-col-reverse lg:flex-row items-center justify-center h-[100vh] md:h-full lg:h-[80vh] w-full lg:w-5/6 lg:bg-[#aadcd2] lg:rounded-[2rem] md:mt-12 lg:mt-0 lg:shadow-2xl">
+            <div class="flex flex-col-reverse lg:flex-row items-center justify-center h-[100vh] md:h-full lg:h-[80vh] w-full lg:w-5/6 lg:bg-[#aadcd2] lg:rounded-[2rem] md:mt-12 lg:mt-0 lg:shadow-2xl overflow-hidden">
                 <div class="hidden md:block h-1/2 lg:h-[60vh] w-full lg:h-full lg:w-5/12">
-
+                    <img className="h-full w-full" src={`${img}`}/>
                 </div>
                 {/* Partition */}
-                <div class="hidden lg:block border-s border-[#2BA78F] h-[60vh]"></div>
+                <div class="hidden lg:block border-s border-[#2BA78F] h-full"></div>
                 {/* Partition */}
                 <div class="h-full md:h-[60vh] w-3/4 lg:w-7/12 lg:h-full lg:w-1/2 flex flex-col justify-center md:p-12 gap-y-15 ">
                     <div class="w-full">
@@ -71,6 +72,7 @@ export default function Register(){
                         {selectedOption === 'Option 2' && <PatientSignUp />}
                         {selectedOption === 'Option 3' && <StaffSignUp />}
                     </div>
+                    <div className='flex flex-row justify-end px-4 py-2'><p>Already have an account? <span><a href="./login" className='text-[#1a6456] font-semibold underline underline-offset-2'>Login</a></span></p></div>
                 </div>
             </div>
         </div>

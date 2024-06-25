@@ -1,8 +1,7 @@
 import React from "react";
-import {useState } from "react";
-import Navbar from "./components/navbar";
+import {useState,useRef, useEffect } from "react";
 import image from "./images/image.jpg";
-// import {Link} from "react-router-dom"
+import {Link} from "react-router-dom"
 
 const custom_shadow = {
     boxShadow: '1px 1px 100px rgba(36, 139, 119, 0.5)'
@@ -10,6 +9,8 @@ const custom_shadow = {
 
 export default function Base(){
     const [isHovered, setIsHovered] = useState(false);
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const menuRef = useRef(null);
 
     const handleMouseEnter = () => {
     setIsHovered(true);
@@ -24,27 +25,40 @@ export default function Base(){
           element.scrollIntoView({ behavior: "smooth" });
         }
     };
-    const [isMenuOpen, setIsMenuOpen] = useState(false);
 
     const handleToggleMenu = () => {
         setIsMenuOpen(!isMenuOpen);
     };
+
+    const handleClickOutside = (event) => {
+        if (menuRef.current && !menuRef.current.contains(event.target)) {
+            setIsMenuOpen(false);
+        }
+    };
+
+    useEffect(() => {
+        document.addEventListener("mousedown", handleClickOutside);
+
+        return () => {
+            document.removeEventListener("mousedown", handleClickOutside);
+        };
+    }, []);
     return(
         <div className="relative">
             <div className="h-[100vh] mb-12 w-full">
             <nav className="bg-white dark:bg-gray-900 fixed w-full z-20 top-0 start-0">
                 <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-3 relative">
-                <a href="https://flowbite.com/" className="flex items-center space-x-3 rtl:space-x-reverse">
+                <a href="/" className="flex items-center space-x-3 rtl:space-x-reverse">
                     <img src="https://flowbite.com/docs/images/logo.svg" className="h-8" alt="Flowbite Logo" />
                     <span className="self-center text-xl font-semibold whitespace-nowrap dark:text-white sm:text-2xl landscape:text-lg">Flowbite</span>
                 </a>
                 <div className="md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
                     <ul className="flex flex-row justify-center items-center lg:gap-x-6 md:gap-x-4 gap-x-2">
                         <li className="hidden sm:inline-flex">
-                            <a href="./register.js" className="block p-4 font-medium py-2 px-3 text-base md:hover:text-[#2BA78F] md:p-0 md:dark:text-blue-500">Sign Up</a>
+                            <a href="./register" className="block p-4 font-medium py-2 px-3 text-base md:hover:text-[#2BA78F] md:p-0 md:dark:text-blue-500">Sign Up</a>
                         </li>
                         <li>
-                            <button type="button" className="text-sm bg-transparent border-solid border-2 focus:outline-none text-[#2BA78F] border-[#2BA78F] font-bold rounded-full px-4 py-2 hover:bg-[#2BA78F] sm:px-6 sm:py-3 hover:text-white text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 landscape:py-2">LOGIN</button>
+                            <Link to="./login"><button type="button" className="text-sm bg-transparent border-solid border-2 focus:outline-none text-[#2BA78F] border-[#2BA78F] font-bold rounded-full px-4 py-2 hover:bg-[#2BA78F] sm:px-6 sm:py-3 hover:text-white text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 landscape:py-2">LOGIN</button></Link>
                         </li>
                         <li>
                             <button 
@@ -64,7 +78,7 @@ export default function Base(){
                     </ul>            
                 </div>
                 
-                <div classNameName={`items-center justify-between ${isMenuOpen ? 'absolute top-12 right-4 w-1/2 xs:w-1/3 sm:w-1/3 block':'hidden'} md:flex md:w-auto md:order-1`} style={{zIndex:1000}} id="navbar-sticky">
+                <div className={`items-center justify-between ${isMenuOpen ? 'absolute top-12 right-4 w-1/2 xs:w-1/3 sm:w-1/3 block':'hidden'} md:flex md:w-auto md:order-1`} style={{zIndex:1000}} id="navbar-sticky"ref={menuRef}>
                     <ul className="flex flex-col p-4 md:p-0 mt-4 font-medium rounded-lg bg-[#7cb9ad] md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
                     <li>
                         <button className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-[#2BA78F] md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700" onClick={() => scrollToSection("section1")} aria-current="page">Home</button>
