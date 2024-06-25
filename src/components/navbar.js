@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import {Link} from "react-router-dom";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -14,7 +15,7 @@ const Navbar = () => {
       <div className="flex items-center space-x-10">
       <div className="hidden md:flex space-x-10">
       <button className="text-black py-1 px-3 font-semibold rounded-md bg-teal-400 border-none cursor-pointer transition-all duration-300 active:shadow-inner active:shadow-teal-700" isActive={activeButton === 1} onClick={()=>handleButtonClick(1)}>Click</button>
-          <a href="#dashboard" className="text-black font-semibold">Dashboard</a>
+          <Link to="/patients/home/DoctorSearch" className="text-black font-semibold">Doctors</Link>
           <a href="#appointments" className="text-black font-semibold">Appointments</a>
           <a href="#records" className="text-black font-semibold">Medical Records</a>
           <a href="#prescriptions" className="text-black font-semibold">Prescriptions</a>

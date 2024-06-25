@@ -14,10 +14,11 @@ import Login from './login';
 
 // Doctor imports
 import DoctorSignUp from "./doctor/signup";
+import DoctorHome from "./doctor/home/DoctorHome";
 
 // Patient imports
 import PatientSignUp from "./patient/signup";
-import PatientHomePage from "./patient/home";
+import PatientHome from "./patient/home/PatientHome";
 
 // Staff imports
 import StaffSignUp from "./staff/signup";
@@ -33,11 +34,12 @@ export default function App(){
           <Route exact path="/login" element={<Login />} />
 
           {/* Patient Screens and Components */}
-          <Route exact path="/patient/home" element={<PatientHomePage />} />
           <Route exact path="/patient/signup" element={<PatientSignUp />} />
+          <Route exact path="/patient/home/PatientHome" element={<PatientHome />} />
 
           {/* Doctor Screens and Components */}
           <Route exact path="/doctor/signup" element={<DoctorSignUp />} />
+          <Route exact path="/doctor/home/DoctorHome" element={<DoctorHome />} />
 
           {/* Staff Screens and Components */}
           <Route exact path="/staff/signup" element={<StaffSignUp />} />

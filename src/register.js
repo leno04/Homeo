@@ -14,6 +14,7 @@ import PatientSignUp from "./patient/signup";
 import DoctorSignUp from "./doctor/signup";
 import StaffSignUp from "./staff/signup";
 import img from "./images/doctorPatient.jpg";
+import {Link} from "react-router-dom";
 
 export default function Register(){
     const [selectedOption, setSelectedOption] = useState('Option 2');
@@ -72,7 +73,7 @@ export default function Register(){
                         {selectedOption === 'Option 2' && <PatientSignUp />}
                         {selectedOption === 'Option 3' && <StaffSignUp />}
                     </div>
-                    <div className='flex flex-row justify-end px-4 py-2'><p>Already have an account? <span><a href="./login" className='text-[#1a6456] font-semibold underline underline-offset-2'>Login</a></span></p></div>
+                    <div className='flex flex-row justify-end px-4 py-2'><p>Already have an account? <span><Link to="/login" className='text-[#1a6456] font-semibold underline underline-offset-2'>Login</Link></span></p></div>
                 </div>
             </div>
         </div>
