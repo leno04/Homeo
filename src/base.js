@@ -126,20 +126,24 @@ export default function Base(){
                     <div className="h-[45vh] aspect-square bg-[#2BA78F] rounded-[2rem]"></div>
                     <div className="h-[40vh] w-[4/5] sm:w-[2/3] bg-[#AADCD2] rounded-[2rem]"></div>
                 </div> */}
-                <div className="relative w-[45vh] lg:w-2/3 h-[100vh] lg:h-[50vh] flex flex-col lg:flex-row items-center justify-center mt-[1.5vh]">
-                    <div className="w-full aspect-[1/1] lg:w-[50vh] lg:h-[50vh] rounded-[2rem] bg-[#AADCD2] flex items-center justify-center">
-                        <img className="aspect-[1/1] w-11/12 lg:h-11/12 rounded-[2rem]" src={`${image}`}/>
+                <div className="flex flex-col lg:flex-row justify-center items-center w-screen min-h-[50vh] lg:gap-x-5 gap-y-5">
+                    <div className="bg-[#d4d4d3] w-[55vh] h-[50vh] lg:w-[30vh]"></div>
+                    <div className="w-[50vh] lg:w-7/12 h-full lg:h-[45vh] flex flex-col lg:flex-row items-center justify-center mt-[1.5vh]">
+                        <div className="w-[45vh] aspect-[1/1] lg:w-[45vh] lg:h-[47vh] rounded-[2rem] bg-[#AADCD2] flex items-center justify-center">
+                            <img className="aspect-[1/1] w-11/12 lg:h-11/12 rounded-[2rem]" src={`${image}`}/>
+                        </div>
+                        <div className="w-5/6 lg:flex-1 h-[55vh] lg:h-5/6 rectangle rounded-b-[2rem] lg:rounded-none lg:rounded-r-[2rem] bg-[#AADCD2]"></div>
                     </div>
-                    <div className="w-5/6 lg:flex-1 h-[55vh] lg:h-5/6 rectangle rounded-b-[2rem] lg:rounded-none lg:rounded-r-[2rem] bg-[#AADCD2]"></div>
+                    <div className="bg-[#d4d4d3] w-[55vh] h-[50vh] lg:w-[30vh]"></div>
                 </div>
-                    
+                
             </div>
             </div>
 
-            <div id="section5" className="flex flex-col items-center justify-center mt-12">
+            {/* <div id="section5" className="flex flex-col items-center justify-center mt-12">
                 <h1 className="w-4/5 font-custom text-3xl sm:w-5/6 md:w-3/4 lg:w-2/3 sm:text-4xl md:text-[2.75rem] text-center">qwertyuiop sdfghjk</h1>
                 <div className="w-full"></div>
-            </div>
+            </div> */}
             <div id="section2"></div>
             <div id="section3"></div>
             <div id="section4"></div> 

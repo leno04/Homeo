@@ -2,9 +2,9 @@ import React from 'react';
 
 const AppointmentBooking = () => {
   return (
-    <div className="min-h-[90vh] bg-gray-50 flex flex-col items-center">
+    <div className="min-h-[90vh] flex flex-col items-center justify-center">
       
-      <main className="w-full max-w-3xl mt-8 p-4 bg-white shadow-md rounded-md">
+      <main className="w-full max-w-3xl p-4 bg-white shadow-md rounded-md">
         <h1 className="text-2xl font-bold">Dr. Jennifer Lee, MD</h1>
         <p className="text-[#2BA78F]">Family Medicine</p>
         <p className="text-[#2BA78F] underline mt-2 mb-6 cursor-pointer">Next available appointment in 4 days</p>

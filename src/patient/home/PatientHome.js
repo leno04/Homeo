@@ -43,7 +43,7 @@ export default function PatientHome() {
     }, []);
 
     return (
-        <div className='min-h-screen'>
+        <div className='min-h-screen bg-[#eef8f6]'>
             <nav className="bg-[#AADCD2] p-4 flex justify-between items-center px-7 md:px-10 lg:px-20">
                 <div className="text-black font-bold lg:text-2xl">LOGO</div>
                 <div className="flex items-center space-x-6">
@@ -108,13 +108,17 @@ export default function PatientHome() {
                     )}
                 </div>
             </nav>
-            <div>
-                {selectedOption === 'Option 1' && <AppointmentBooking />}
-                {selectedOption === 'Option 2' && <DoctorSearch />}
-                {selectedOption === 'Option 3' && <></>}
-                {selectedOption === 'Option 4' && <></>}
-                {selectedOption === 'Option 5' && <></>}
-                {selectedOption === 'Profile' && <PatientProfile />}
+            <div className='w-screen min-h-[90vh] flex flex-col lg:flex-row justify-center items-center lg:gap-x-5 gap-y-5'>
+                <div className='h-[70vh] bg-[#d4d4d3] w-[90vw] lg:w-[20vw]'></div>
+                <div>
+                    {selectedOption === 'Option 1' && <AppointmentBooking />}
+                    {selectedOption === 'Option 2' && <DoctorSearch />}
+                    {selectedOption === 'Option 3' && <></>}
+                    {selectedOption === 'Option 4' && <></>}
+                    {selectedOption === 'Option 5' && <></>}
+                    {selectedOption === 'Profile' && <PatientProfile />}
+                </div>
+                <div className='h-[70vh] bg-[#d4d4d3] w-[90vw] lg:w-[20vw]'></div>
             </div>
         </div>
     );

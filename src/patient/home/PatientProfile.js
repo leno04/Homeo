@@ -82,7 +82,7 @@ const PatientProfile = () => {
   };
 
   return (
-    <div className="min-h-screen flex flex-col bg-[#E3F9F5]">
+    <div className="min-h-[90vh] flex flex-col bg-[#E3F9F5]">
       <main className="flex-1 bg-[#F7FAFC] p-8">
         <div className="flex justify-between items-center">
           <h1 className="text-2xl font-bold">Patient Details</h1>
